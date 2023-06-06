@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com');
+
+
+.signin-wrapper{
+    border: none;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: 500px;
+    margin-top: 150px;
+    border-radius: 10px;
+    background: url("../Images/signin-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .signin-heading{
+        font-family: 'Geologica', sans-serif;
+        text-transform: uppercase;
+        color: rgb(74, 74, 74);
+    }
+
+    .signin-inputs{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        #standard-basic{
+            width: 250px;
+        }
+    }
+
+    .signin-buttons{
+        margin-bottom: 30px;
+    }
+}
