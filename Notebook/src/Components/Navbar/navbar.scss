@@ -1,0 +1,46 @@
+ @import url('https://fonts.googleapis.com'); 
+
+.navbar{
+    background-color: #202020;
+    width: 100%;
+    position:fixed;
+    top: 0;
+    right: 0;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; 
+
+    .head h1{
+        color:white;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .head img{
+        width:40px;
+    }
+    .options{
+        text-decoration: none;
+        display: flex ;
+        font-family: 'Geologica', sans-serif;
+        text-transform: uppercase;
+        font-weight: 500;
+        color:white;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+    }
+    .options a{
+        text-decoration: none;
+        margin-right: 50px;
+        margin-left: 50px;
+        color:white;
+    }
+    
+    .options a:hover{
+        color:#645bff;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    
+}
+

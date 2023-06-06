@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import "./navbar.css"
+import "./navbar.scss"
 
 function Navbar() {
 
@@ -18,7 +18,7 @@ function Navbar() {
           <Link to="/">Home</Link>
           <Link to="#">About</Link>
           <Link to="#">Resources</Link>
-         
+          <Link to="#">Contact</Link>         
         </div>
       </div>
      

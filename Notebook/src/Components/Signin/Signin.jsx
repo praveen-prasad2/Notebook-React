@@ -1,9 +1,12 @@
 import React from 'react'
 import { Button, TextField } from '@mui/material'
 import "./signin.scss"
+import Navbar from '../Navbar/Navbar'
 
 function Signin() {
   return (
+<>
+    <Navbar />
     <div className="signin-wrapper">
     <h1 className="signin-heading">Signin</h1>
     <div className="signin-inputs">
@@ -14,6 +17,7 @@ function Signin() {
     <Button variant="contained">Signin</Button>
     </div>
 </div>
+</>
   )
 }
 
