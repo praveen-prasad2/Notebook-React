@@ -10,15 +10,21 @@ function AddNote() {
   //   title: "",
   //   description: "",
   // });
-  const [note, setNote] = useState([])
-  const [title, setTitle] = useState({})
-  const [desc, setDesc] = useState({})
+  const [note, setNote] = useState([]);
 
-  async function createNote() {
-    setNote([...note,{head:title,description:desc}])
-    localStorage.setItem("note", JSON.stringify(note));
-    console.log(note);
+  const [title, setTitle] = useState();
+  const [desc, setDesc] = useState();
+
+  async function handleCreate() {
+    try {
+
+      setNote([...note, { title: title, desc: desc }]);
+    } catch (error) {
+      console.log(error);
+    }
   }
+  localStorage.setItem("notebook", JSON.stringify(note));
+  console.log(note);
   return (
     <>
       <Navbar />
@@ -30,8 +36,8 @@ function AddNote() {
             label="Title"
             variant="standard"
             type="text"
-            onChange={(e) => setTitle( e.target.value )}
-            
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
           />
           <br />
           <TextField
@@ -41,13 +47,14 @@ function AddNote() {
             rows={5}
             variant="standard"
             type="text"
-            onChange={(e) => setDesc( e.target.value )}
+            value={desc}
+            onChange={(e) => setDesc(e.target.value)}
           />
           <br />
           <br />
         </div>
         <div className="addnote-buttons">
-          <Button variant="contained" onClick={createNote}>
+          <Button variant="contained" onClick={handleCreate}>
             Save
           </Button>
         </div>
