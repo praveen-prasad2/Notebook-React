@@ -1,18 +1,26 @@
-import React from 'react'
-import "./note.scss"
+import React, { useState } from "react";
+import "./note.scss";
+import Navbar from "../Navbar/Navbar";
+import NoteCard from "./NoteCard";
 
 function Note() {
-
-
-    const title=localStorage.getItem("title")
-    const description=localStorage.getItem("desc")
+  const data = JSON.parse(localStorage.getItem('notes'))
+console.log(data)
   return (
+    <>
+<Navbar />
+
     <div className="note-main">
-        <div className="note-container">
-            
+      <div className="note-container">
+       {data && data?.map((n)=>(
+        <div>
+          <NoteCard notemap={n}/>
         </div>
+       ))}
+      </div>
     </div>
-  )
+    </>
+  );
 }
 
-export default Note
+export default Note;
