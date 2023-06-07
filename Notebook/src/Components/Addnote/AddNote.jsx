@@ -6,25 +6,35 @@ import { useState } from "react";
 import "./addnote.scss";
 
 function AddNote() {
-
   const [note, setNote] = useState([]);
-
   const [title, setTitle] = useState();
   const [desc, setDesc] = useState();
 
-  async function handleCreate() {
-    
-    try {
-      setNote([...note, { title: title, desc: desc }]);
-    } catch (error) {
-      console.log(error);
+  // localStorage.setItem("notes", JSON.stringify(note));
+
+  //use conditional instead
+  useEffect(() => {
+    if (note.length > 0) {
+      localStorage.setItem("notes", JSON.stringify(note));
     }
-  }
-  
-  window.localStorage.setItem("notes", JSON.stringify(note));
-  console.log(note);
+  }, [note]);
 
+  const randomId = function (length = 6) {
+    return Math.random()
+      .toString(36)
+      .substring(2, length + 2);
+  };
 
+  const id = randomId();
+
+  const handleCreate = () => {
+    setNote([...note, { id: id, title: title, desc: desc }]);
+    setTitle("");
+    setDesc("");
+  };
+
+  // const data = JSON.parse(localStorage.getItem("notes"));
+  // console.log(data);
 
   return (
     <>

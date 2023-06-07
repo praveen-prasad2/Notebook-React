@@ -16,7 +16,7 @@ console.log(data)
     <div className="note-main">
       <div className="note-container">
        {data && data?.map((n)=>(
-        <div>
+        <div key={n.id}>
           <NoteCard notemap={n}/>
         </div>
        ))}
