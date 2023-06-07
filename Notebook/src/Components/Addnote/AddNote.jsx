@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../Navbar/Navbar";
 import { Button, TextField } from "@mui/material";
 import { useState } from "react";
@@ -6,25 +6,26 @@ import { useState } from "react";
 import "./addnote.scss";
 
 function AddNote() {
-  // const [note, setNote] = useState({
-  //   title: "",
-  //   description: "",
-  // });
+
   const [note, setNote] = useState([]);
 
   const [title, setTitle] = useState();
   const [desc, setDesc] = useState();
 
   async function handleCreate() {
+    
     try {
-
       setNote([...note, { title: title, desc: desc }]);
     } catch (error) {
       console.log(error);
     }
   }
-  localStorage.setItem("notebook", JSON.stringify(note));
+  
+  window.localStorage.setItem("notes", JSON.stringify(note));
   console.log(note);
+
+
+
   return (
     <>
       <Navbar />

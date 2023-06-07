@@ -18,10 +18,10 @@ function Signup() {
   async function userSignup(){
 
     if(fullName && email && password){
-      localStorage.setItem("fullname",fullName)
-      localStorage.setItem("email",email)
-      localStorage.setItem("password",password)
-      localStorage.setItem("signup",email)
+      window.localStorage.setItem("fullname",fullName)
+      window.localStorage.setItem("email",email)
+      window.localStorage.setItem("password",password)
+      window.localStorage.setItem("signup",email)
 
       alert("Account created successfully")
       navigate("/signin")
