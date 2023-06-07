@@ -1,10 +1,13 @@
 import React from 'react'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import Navbar from "../Navbar/Navbar"
 import "./signup.scss"
 
 function Signup() {
   return (
+    <>
+    <Navbar/>
     <div className="signup-wrapper">
         <h1 className="signup-heading">Signup</h1>
         <div className="signup-inputs">
@@ -16,6 +19,7 @@ function Signup() {
         <Button variant="contained">Signup</Button>
         </div>
     </div>
+    </>
   )
 }
 

@@ -11,7 +11,7 @@ function Navbar() {
       <div className="navbar">
         <div className="head">
           <h1>
-            <img src="" alt="" /> Notebook
+            <img src="" alt="" />NOTEBOOK
           </h1>
         </div>
         <div className="options">
