@@ -10,8 +10,9 @@ function Navbar() {
     <>
       <div className="navbar">
         <div className="head">
-          <h1>
-            <img src="" alt="" />NOTEBOOK
+        <img src="\src\assets\notes-svgrepo-com.svg" alt="" />
+            <h1>
+               NOTEBOOK
           </h1>
         </div>
         <div className="options">

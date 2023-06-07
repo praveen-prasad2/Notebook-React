@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Navbar from "../Navbar/Navbar"
 import "./signup.scss"
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Signup() {
 
@@ -41,6 +41,7 @@ function Signup() {
         </div>
         <div className="signup-buttons">
         <Button variant="contained" onClick={userSignup}>Signup</Button>
+       <p>Already a member? <Link to="/signin">Signin</Link></p> 
         </div>
     </div>
     </>
