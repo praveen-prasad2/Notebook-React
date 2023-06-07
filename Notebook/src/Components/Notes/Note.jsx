@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import "./note.scss";
 import Navbar from "../Navbar/Navbar";
 import NoteCard from "./NoteCard";
+import { Link } from "react-router-dom";
+import AddIcon from '@mui/icons-material/Add';
+
 
 function Note() {
   const data = JSON.parse(localStorage.getItem('notes'))
@@ -19,6 +22,9 @@ console.log(data)
        ))}
       </div>
     </div>
+    <Link to="/addnote">
+    <button className="add-new-note">Add Note <AddIcon/></button>
+</Link>
     </>
   );
 }
