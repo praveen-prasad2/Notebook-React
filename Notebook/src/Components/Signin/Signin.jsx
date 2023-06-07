@@ -18,7 +18,8 @@ const navigate=useNavigate()
   async function userSignin(){
 
     if(emailRef.current.value==localEmail && passRef.current.value==localPassword){
-        navigate("/addnote")
+      navigate("/addnote")
+      // alert("Hello there")
     }else{
       alert("check login details")
     }
