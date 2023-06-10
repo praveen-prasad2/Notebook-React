@@ -7,6 +7,7 @@ import "./addnote.scss";
 
 function AddNote() {
   const [note, setNote] = useState([]);
+
   const [title, setTitle] = useState();
   const [desc, setDesc] = useState();
 
@@ -14,10 +15,13 @@ function AddNote() {
 
   //use conditional instead
   useEffect(() => {
-    if (note.length > 0) {
-      localStorage.setItem("notes", JSON.stringify(note));
+    if (note) {
+    setNote(localStorage.getItem("notes"));
+    console.log(typeof(localStorage.getItem("notes")));
+    // localStorage.setItem("notes",[])
+
     }
-  }, [note]);
+  }, []);
 
   const randomId = function (length = 6) {
     return Math.random()
@@ -29,6 +33,7 @@ function AddNote() {
 
   const handleCreate = () => {
     setNote([...note, { id: id, title: title, desc: desc }]);
+    localStorage.setItem("notes",([...note, { id: id, title: title, desc: desc }]))
     setTitle("");
     setDesc("");
   };

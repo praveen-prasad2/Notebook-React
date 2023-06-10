@@ -21,10 +21,10 @@ console.log(data)
         </div>
        ))}
       </div>
-    </div>
     <Link to="/addnote">
     <button className="add-new-note">Add Note <AddIcon/></button>
 </Link>
+    </div>
     </>
   );
 }

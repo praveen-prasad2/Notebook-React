@@ -7,12 +7,20 @@ import "./notecard.scss"
 
 function NoteCard({notemap}) {
 
+
+    
+
     async function deleteNote(noteid){
-        let noteToDelete=[...notemap]
-        let index=notemap.findIndex((n)=>{
+        console.log("Clicked On Delete Button")
+        let noteToDelete=notemap.id
+
+
+        let allNotes=localStorage.getItem("notes")
+        
+        let index=noteToDelete.findIndex((n)=>{
             n.id===noteid;
             noteToDelete.splice(index,1)
-            localStorage.setItem("notes",JSON.stringify(noteToDelete))
+            localStorage.rove("notes",JSON.stringify(noteToDelete))
         })
     }
     return (
