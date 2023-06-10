@@ -1,0 +1,32 @@
+.edit-main{
+    border: none;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 550px;
+    margin-top: 140px;
+    background: url("../../Images/editnote-bg.jpg");
+    background-size:cover;
+    border-radius: 20px;
+
+     h1{
+        color: white;
+    }
+    
+    .inputs-edit{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 400px;
+    }
+    
+    
+    .buttons-edit .btn{
+        width: 200px;
+        margin-bottom: 20px;
+    }
+}
