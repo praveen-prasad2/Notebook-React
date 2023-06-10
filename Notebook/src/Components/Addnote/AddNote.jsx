@@ -1,47 +1,34 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../Navbar/Navbar";
 import { Button, TextField } from "@mui/material";
-import { useState } from "react";
 
-import "./addnote.scss";
+import "./addnote.scss"
 
-function AddNote() {
-  const [note, setNote] = useState([]);
+const App = () => {
+  const [notes, setNotes] = useState(() => {
+    const storedNotes = localStorage.getItem("notes");
+    return storedNotes ? JSON.parse(storedNotes) : [];
+  });
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
 
-  const [title, setTitle] = useState();
-  const [desc, setDesc] = useState();
-
-  
-
-  // localStorage.setItem("notes", JSON.stringify(note));
-
-  //use conditional instead
-  useEffect(() => {
-    if (note) {
-    setNote(localStorage.getItem("notes"));
-    console.log(typeof(localStorage.getItem("notes")));
-    // localStorage.setItem("notes",[])
-
-    }
-  }, []);
-
-  const randomId = function (length = 6) {
-    return Math.random()
-      .toString(36)
-      .substring(2, length + 2);
+  const randomId = (length = 6) => {
+    return Math.random().toString(36).substring(2, length + 2);
   };
 
-  const id = randomId();
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+    // localStorage.setItem("notes",[])
+  }, [notes]);
 
   const handleCreate = () => {
-    setNote([...note, { id: id, title: title, desc: desc }]);
-    localStorage.setItem("notes",([...note, { id: id, title: title, desc: desc }]))
+    const id = randomId();
+    const newNote = { id: id, title: title, desc: desc };
+    setNotes([...notes, newNote]);
     setTitle("");
     setDesc("");
+    console.log(newNote);
   };
-
-  // const data = JSON.parse(localStorage.getItem("notes"));
-  // console.log(data);
 
   return (
     <>
@@ -79,6 +66,6 @@ function AddNote() {
       </div>
     </>
   );
-}
+};
 
-export default AddNote;
+export default App;
