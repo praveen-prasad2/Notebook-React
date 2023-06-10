@@ -1,25 +1,37 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { Button, TextField } from '@mui/material'
 import "./signin.scss"
 import Navbar from '../Navbar/Navbar'
 import { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { UserContext } from '../Context/UserContext'
 
 function Signin() {
 
 const emailRef=useRef()
 const passRef=useRef()
 
+
 const navigate=useNavigate()
 
-  const localEmail=localStorage.getItem("email")
-  const localPassword=localStorage.getItem("password")
+const localEmail=localStorage.getItem("email")
+const localPassword=localStorage.getItem("password")
 
-  async function userSignin(){
 
-    if(emailRef.current.value==localEmail && passRef.current.value==localPassword){
-      navigate("/addnote")
-      // alert("Hello there")
+const { SetloggedinUser } = useContext(UserContext);
+
+
+
+async function userSignin(){
+  
+  if(emailRef.current.value==localEmail && passRef.current.value==localPassword){
+    
+    localStorage.setItem("loggedinuser",JSON.stringify({email:localEmail,password:localPassword}))
+    
+    SetloggedinUser(JSON.parse(localStorage.getItem("loggedinuser")))
+    
+    navigate("/addnote")
+
     }else{
       alert("check login details")
     }

@@ -11,6 +11,8 @@ function AddNote() {
   const [title, setTitle] = useState();
   const [desc, setDesc] = useState();
 
+  
+
   // localStorage.setItem("notes", JSON.stringify(note));
 
   //use conditional instead
