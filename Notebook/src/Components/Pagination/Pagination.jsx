@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+
+import "./pagination.scss"
+
 const Pagination = ({ currentPage, totalItems, itemsPerPage, onPageChange }) => {
   const [currentPageState, setCurrentPage] = useState(currentPage || 1);
 
@@ -33,10 +36,15 @@ const Pagination = ({ currentPage, totalItems, itemsPerPage, onPageChange }) => 
   return (
     <>
 
-    <h1>cgsdcscj</h1>
-    <ul className="pagination">
+    <div className="pagination">
+      <div className="page-wrap">
+
+    <p className="page-nos">
       {renderPageNumbers()}
-    </ul>
+    </p>
+      </div>
+    </div>
+      
     </>
   );
 };
