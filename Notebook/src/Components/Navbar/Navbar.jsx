@@ -1,10 +1,31 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import "./navbar.scss"
+import SearchIcon from '@mui/icons-material/Search';
 
 function Navbar() {
 
+  const[renderSearch,setRenderSearch]=useState(false)
 
+const path=window.location.pathname
+
+const navigate=useNavigate()
+
+function toSearch(){
+  navigate("/search")
+}
+
+
+useEffect(()=>{
+
+  if(path==="/notes"){
+    setRenderSearch(true)
+  
+  }
+},[])
+
+
+console.log(path);
 
   return (
     <>
@@ -19,7 +40,8 @@ function Navbar() {
           <Link to="/">Home</Link>
           <Link to="#">About</Link>
           <Link to="/notes">All Notes</Link>
-          <Link to="#">Contact</Link>         
+          <Link to="#">Contact</Link> 
+          { renderSearch && <SearchIcon onClick={toSearch}/> }       
         </div>
       </div>
      

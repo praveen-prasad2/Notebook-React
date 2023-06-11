@@ -8,6 +8,8 @@ import UserRoute from './Components/Private Route/UserRoute';
 import UserProvider from './Components/Context/UserContext';
 import Signin from './Components/Signin/Signin';
 import EditNote from './Components/Edit Note/EditNote';
+import SearchBar from './Components/SearchBar/SearchBar';
+
 
 function App() {
 
@@ -22,6 +24,7 @@ function App() {
       <Route path='editnote' element={<EditNote />}/>
       <Route path="addnote" element={<UserRoute><AddNote /></UserRoute>} />
     <Route path="notes" element={<UserRoute><Note /></UserRoute>}/>
+      <Route path='search' element={<SearchBar />}/>
     </Routes>
     </BrowserRouter>
     </UserProvider >
