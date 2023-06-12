@@ -1,40 +1,61 @@
-@import url('https://fonts.googleapis.com');
 
+.signup-wrapper {
+  border: none;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 150px;
+  border-radius: 10px;
+  background: url("../../Images/signup-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-.signup-wrapper{
-    border: none;
-    width: 500px;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    margin-left: 500px;
-    margin-top: 150px;
-    border-radius: 10px;
-    background: url("../../Images/signup-bg.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+.signup-heading {
+  font-family: 'Geologica', sans-serif;
+  text-transform: uppercase;
+  color: rgb(74, 74, 74);
+}
 
-    .signup-heading{
-        font-family: 'Geologica', sans-serif;
-        text-transform: uppercase;
-        color: rgb(74, 74, 74);
-    }
+.signup-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
 
-    .signup-inputs{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
+.signup-inputs input {
+  width: 250px;
+}
 
-        #standard-basic{
-            width: 250px;
-        }
-    }
+.signup-buttons {
+  margin-bottom: 30px;
+}
 
-    .signup-buttons{
-        margin-bottom: 30px;
-    }
+/* Media Queries */
+
+@media screen and (max-width: 600px) {
+  .signup-wrapper {
+    width: 90%;
+    height: auto;
+    margin-top: 100px;
+    margin-bottom: 50px;
+  }
+
+  .signup-inputs input {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .signup-wrapper {
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
 }

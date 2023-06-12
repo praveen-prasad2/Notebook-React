@@ -4,6 +4,7 @@ import EditIcon from '@mui/icons-material/Edit';
 
 import "./notecard.scss";
 import { TextField } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 function NoteCard({ notemap }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -54,7 +55,7 @@ function NoteCard({ notemap }) {
               onChange={(e) => setEditedTitle(e.target.value)}
             />
           ) : (
-            <h1>{notemap.title}</h1>
+            <h1 className='note-title'>{notemap.title}</h1>
           )}
         </div>
         <div className="notecard-content">
@@ -68,7 +69,7 @@ function NoteCard({ notemap }) {
           ) : (
             <div className="desc-area">
 
-                <p>{notemap.desc}</p>
+                <p>{notemap.desc} <Link to={`/singlenote/${notemap.id}`} className='load-more'>...Load more.</Link> </p>
             </div>
           )}
         </div>

@@ -33,17 +33,11 @@
 
         
         }
-
-        svg {
-            position: absolute;
-            font-size: 25px;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-
-           
+          
+        .close-icon{
+            font-size: 35px;
         }
+        
     }
 
     .search-result-content {
@@ -57,19 +51,24 @@
             margin: 20px 0;
             display: flex;
             flex-direction: column;
-            // justify-content: center;
             align-items: center;
+
+
+
 
           
             .search-result-item {
-                margin-top: 50px;
+                margin-top: 20px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 gap: 10px;
                 padding: 10px 0;
                 border: 1px solid rgba($color: #000000, $alpha: 0.1);
-                // background-color: #feff9c;
+
+                .name{
+                    text-decoration: none;
+                }
              
                 cursor: pointer;
                 width: 300px;
@@ -79,6 +78,11 @@
 
                 .note-details {
                     overflow: hidden;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+
                     .name {
                         text-overflow: ellipsis;
                         white-space: nowrap;

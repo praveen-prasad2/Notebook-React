@@ -14,6 +14,11 @@
         align-items: center;
         height: 100px;
 
+        .note-title{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     
 
         .edit-title{
@@ -53,21 +58,22 @@
 
     
     .notecard-content{
-        // margin-left: 20px;
 
         .desc-area{
-            // width: 100px;
             padding: 20px 20px;
             display: flex;
             align-items: start;
             justify-content: center;
-            // margin: 10px 0;
+
+            .load-more{
+                text-decoration: none;
+                color: red;
+            }
         }
     }
     
     .notecard-buttons{
         display: flex;
-        // padding-top: 80px;
         align-items: center;
         position: relative;
         justify-content:space-around;
@@ -76,12 +82,12 @@
         .edit-button{
             width: 150px;
             height: 40px;
-           background-color: rgb(92, 87, 87);
+           background-color: black;
            color: #feff9c;
            font-size: 15px;
            font-weight: 600;
            border-radius: 5px;
-            border: 1px solid rgb(138, 135, 135);
+            border: none;
         }
 
         .icons{

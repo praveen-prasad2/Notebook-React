@@ -26,7 +26,6 @@ function Signup() {
       alert("Account created successfully")
       navigate("/signin")
     }
-    // console.log(fullName+email+password);
   
   }
   return (

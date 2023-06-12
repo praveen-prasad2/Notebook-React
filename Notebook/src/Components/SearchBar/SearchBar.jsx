@@ -1,27 +1,39 @@
-import React, { useState } from 'react';
-import Navbar from "../Navbar/Navbar";
-// import { MdClose } from "react-icons/md";
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import CloseIcon from '@mui/icons-material/Close';
+import SingleNote from '../SingleNote/SingleNote';
 
-import "./searchbar.scss";
+import './searchbar.scss';
 
 function SearchBar({ setShowSearch }) {
   const [searchResults, setSearchResults] = useState([]);
+  const [selectedNote, setSelectedNote] = useState(null);
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const [notes, setNotes] = useState([]);
+
+  useEffect(() => {
+    const storedNotes = JSON.parse(localStorage.getItem('notes')) || [];
+    setNotes(storedNotes);
+  }, []);
 
   const handleSearch = (event) => {
     const keyword = event.target.value.toLowerCase();
-    const results = [];
-
-    const notes = JSON.parse(localStorage.getItem('notes')) || [];
-
-    for (const note of notes) {
-      const lowercaseTitle = note.title.toLowerCase();
-      if (lowercaseTitle.includes(keyword)) {
-        results.push({ title: note.title, description: note.description });
-      }
-    }
-
+    const results = notes.filter((note) =>
+      note.title.toLowerCase().includes(keyword)
+    );
     setSearchResults(results);
+    setSelectedNote(null);
+  };
+
+  const handleNoteClick = (noteId) => {
+    setSelectedNote(noteId);
+    setShowSearch(false);
+    navigate(`/singlenote/${noteId}`);
+  };
+
+  const getNoteDataById = (noteId) => {
+    return notes.find((note) => note.id === noteId) || null;
   };
 
   return (
@@ -34,20 +46,25 @@ function SearchBar({ setShowSearch }) {
             placeholder="Search Notes"
             onChange={handleSearch}
           />
-          <CloseIcon onClick={() => setShowSearch(false)} />
+          <CloseIcon className="close-icon" onClick={() => setShowSearch(false)} />
         </div>
         <div className="search-result-content">
           <div className="search-result">
-            {searchResults.map((result, index) => (
-              <div key={index} className="search-result-item">
-                <div className="note-details">
+            {searchResults.map((result) => (
+              <div key={result.id} className="search-result-item">
+                <Link
+                  to={`/singlenote/${result.id}`}
+                  className="note-details"
+                  onClick={() => handleNoteClick(result.id)}
+                >
                   <span className="name">{result.title}</span>
-                </div>
+                </Link>
               </div>
             ))}
           </div>
         </div>
       </div>
+      {selectedNote && <SingleNote noteId={selectedNote} />}
     </>
   );
 }
